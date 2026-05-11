@@ -17,7 +17,7 @@ from ada_verona.database.verification_result import VerificationResult
 
 
 def test_verification_result_values():
-   
+
     assert VerificationResult.UNSAT == "UNSAT"
     assert VerificationResult.SAT == "SAT"
     assert VerificationResult.TIMEOUT == "TIMEOUT"

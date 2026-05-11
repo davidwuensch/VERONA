@@ -30,7 +30,14 @@ class PGDAttack(Attack):
         randomise (bool): Whether to randomize the initial perturbation.
     """
 
-    def __init__(self, number_iterations: int, step_size: float = None, randomise: bool = False, data_lb: float = 0.0, data_ub: float = 1.0) -> None:
+    def __init__(
+        self,
+        number_iterations: int,
+        step_size: float = None,
+        randomise: bool = False,
+        data_lb: float = 0.0,
+        data_ub: float = 1.0,
+    ) -> None:
         """
         Initialize the PGDAttack with specific parameters.
 
@@ -48,8 +55,7 @@ class PGDAttack(Attack):
         self.data_lb = data_lb
         self.data_ub = data_ub
         self.name = (
-            f"PGDAttack (iterations={self.number_iterations}, "
-            f"step_size={self.step_size}, randomise={self.randomise})"
+            f"PGDAttack (iterations={self.number_iterations}, step_size={self.step_size}, randomise={self.randomise})"
         )
 
     def execute(self, model: Module, data: Tensor, target: Tensor, epsilon: float) -> Tensor:

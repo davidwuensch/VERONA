@@ -50,6 +50,7 @@ def test_get_input_shape(network, mock_graph):
     input_shape = network.get_input_shape()
     assert input_shape == [1, 3, 224, 224]
 
+
 def test_load_pytorch_model(network, mock_graph):
 
     model = onnx.helper.make_model(mock_graph)
@@ -57,17 +58,18 @@ def test_load_pytorch_model(network, mock_graph):
 
     torch_model_wrapper = network.load_pytorch_model()
 
-    assert isinstance(torch_model_wrapper, TorchModelWrapper) 
+    assert isinstance(torch_model_wrapper, TorchModelWrapper)
     assert torch_model_wrapper.torch_model is not None
     assert torch_model_wrapper.input_shape == [1, 3, 224, 224]
+
 
 def test_to_dict(network):
     network_dict = network.to_dict()
     assert network_dict == {
-        "network_path": str(network.path), 
-        'type':'ONNXNetwork', 
-        'module': 'ada_verona.database.machine_learning_model.onnx_network'
-        }
+        "network_path": str(network.path),
+        "type": "ONNXNetwork",
+        "module": "ada_verona.database.machine_learning_model.onnx_network",
+    }
 
 
 def test_from_dict(tmp_path):
@@ -89,7 +91,7 @@ def test_from_file(tmp_path):
 
     assert isinstance(network, ONNXNetwork)
     assert network.path == onnx_file
-    
+
 
 def test_from_file_not_found(tmp_path):
     missing_file = tmp_path / "missing.onnx"

@@ -18,8 +18,8 @@ from pathlib import Path
 import numpy as np
 import onnx
 import torch
-from onnxsim import simplify
 from onnx2torch import convert
+from onnxsim import simplify
 
 from ada_verona.database.machine_learning_model.network import Network
 from ada_verona.database.machine_learning_model.torch_model_wrapper import TorchModelWrapper
@@ -55,7 +55,7 @@ class ONNXNetwork(Network):
             str: The name of the network.
         """
         return self.path.stem
-    
+
     @property
     def path(self) -> Path:
         """
@@ -117,7 +117,7 @@ class ONNXNetwork(Network):
                 model_to_convert = onnx_model
 
             torch_model = convert(model_to_convert).to(device)
-            
+
             torch_model_wrapper = TorchModelWrapper(torch_model, self.get_input_shape())
             self.torch_model_wrapper = torch_model_wrapper
 
@@ -130,14 +130,15 @@ class ONNXNetwork(Network):
         Returns:
             dict: The dictionary representation of the Network.
         """
-        
-        return dict(network_path =  str(self.path), 
-                type=self.__class__.__name__,
-                module=self.__class__.__module__,
-                    )
+
+        return dict(
+            network_path=str(self.path),
+            type=self.__class__.__name__,
+            module=self.__class__.__module__,
+        )
 
     @classmethod
-    def from_dict(cls, data: dict)-> "ONNXNetwork":
+    def from_dict(cls, data: dict) -> "ONNXNetwork":
         """
         Create a Network from a dictionary.
 
@@ -147,15 +148,15 @@ class ONNXNetwork(Network):
         Returns:
             Network: The created Network.
         """
-        return cls(path = data['network_path'])
-    
+        return cls(path=data["network_path"])
+
     @classmethod
-    def from_file(cls, file:Path)-> "ONNXNetwork":
+    def from_file(cls, file: Path) -> "ONNXNetwork":
         """
         Create a ONNXNetwork from a dictionary.
 
         Args:
-            file (Path): Path at which the network is stored. 
+            file (Path): Path at which the network is stored.
 
         Returns:
             ONNXNetwork: The created ONNXNetwork.
@@ -164,4 +165,4 @@ class ONNXNetwork(Network):
         if not file.is_file():
             raise FileNotFoundError(f"File not found: {file}")
 
-        return cls(path = file)
+        return cls(path=file)
