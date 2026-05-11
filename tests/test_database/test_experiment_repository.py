@@ -251,8 +251,8 @@ def test_get_result_df(experiment_repository):
 
     assert not result_df.empty
     assert len(result_df) == 2
-    assert "network" in result_df.columns
-    assert result_df.iloc[0]["network"] == "network_1"
+    assert "network_path" in result_df.columns
+    assert result_df.iloc[0]["network_path"] == "network_1"
 
     # Create a temporary file to simulate the absence of the result file
     temp_file = experiment_repository.get_results_path() / "non_existent_file.csv"
@@ -282,8 +282,8 @@ def test_get_per_epsilon_result_df(experiment_repository, tmp_path):
 
     assert not per_epsilon_df.empty
     assert len(per_epsilon_df) == 2
-    assert "network" in per_epsilon_df.columns
-    assert per_epsilon_df.iloc[0]["network"] == "network_1"
+    assert "network_path" in per_epsilon_df.columns
+    assert per_epsilon_df.iloc[0]["network_path"] == "network_1"
     assert per_epsilon_df.iloc[0]["image"] == "image_1"
 
 
