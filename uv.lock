@@ -12,6 +12,7 @@ dependencies = [
     { name = "onnx" },
     { name = "onnx2torch" },
     { name = "onnxruntime" },
+    { name = "onnxsim" },
     { name = "pandas" },
     { name = "pyyaml" },
     { name = "result" },
@@ -76,6 +77,7 @@ requires-dist = [
     { name = "onnx", specifier = ">=1.14.0" },
     { name = "onnx2torch", specifier = ">=1.5.14" },
     { name = "onnxruntime", specifier = ">=1.14.1" },
+    { name = "onnxsim", specifier = ">=0.4" },
     { name = "pandas", specifier = ">=2.0.1" },
     { name = "pre-commit", marker = "extra == 'dev'" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.2.2" },
@@ -445,6 +447,18 @@ wheels = [
 ]
 
 [[package]]
+name = "markdown-it-py"
+version = "4.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mdurl" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz", hash = "sha256:04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49", size = 82454, upload-time = "2026-05-07T12:08:28.36Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b3/81/4da04ced5a082363ecfa159c010d200ecbd959ae410c10c0264a38cac0f5/markdown_it_py-4.2.0-py3-none-any.whl", hash = "sha256:9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a", size = 91687, upload-time = "2026-05-07T12:08:27.182Z" },
+]
+
+[[package]]
 name = "markupsafe"
 version = "3.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -489,6 +503,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/1e/6c/a9bcf03e9afb2a873e0a5855f79bce476d1023f26f8212969f2b7504756c/matplotlib-3.10.7-pp310-pypy310_pp73-macosx_10_15_x86_64.whl", hash = "sha256:5c09cf8f2793f81368f49f118b6f9f937456362bee282eac575cca7f84cda537", size = 8241204, upload-time = "2025-10-09T00:27:48.806Z" },
     { url = "https://files.pythonhosted.org/packages/5b/fd/0e6f5aa762ed689d9fa8750b08f1932628ffa7ed30e76423c399d19407d2/matplotlib-3.10.7-pp310-pypy310_pp73-macosx_11_0_arm64.whl", hash = "sha256:de66744b2bb88d5cd27e80dfc2ec9f0517d0a46d204ff98fe9e5f2864eb67657", size = 8104607, upload-time = "2025-10-09T00:27:50.876Z" },
     { url = "https://files.pythonhosted.org/packages/b9/a9/21c9439d698fac5f0de8fc68b2405b738ed1f00e1279c76f2d9aa5521ead/matplotlib-3.10.7-pp310-pypy310_pp73-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:53cc80662dd197ece414dd5b66e07370201515a3eaf52e7c518c68c16814773b", size = 8682257, upload-time = "2025-10-09T00:27:52.597Z" },
+]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729, upload-time = "2022-08-14T12:40:10.846Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979, upload-time = "2022-08-14T12:40:09.779Z" },
 ]
 
 [[package]]
@@ -901,6 +924,26 @@ wheels = [
 ]
 
 [[package]]
+name = "onnxsim"
+version = "0.6.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "onnx" },
+    { name = "rich" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ca/e2/18dc34b79893dfa40fab6386b9024cfafb7050d87441b7af99dec414b65c/onnxsim-0.6.3.tar.gz", hash = "sha256:5ea844096208ba0a19d59ecee9b88e37c0059222ec2d30d35f400a2cdc5e5c58", size = 2729697, upload-time = "2026-04-29T13:55:11.29Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a0/40/8df422f9f4c8ad692fe268eaa3434683b711a90dbaf21a630cf6a77ce604/onnxsim-0.6.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:dec25e910e491fb5aa67ddc47cc714d9a245ea2f1c34e5bc2df6d2f03a934c23", size = 1870658, upload-time = "2026-04-29T13:54:47.118Z" },
+    { url = "https://files.pythonhosted.org/packages/05/cb/4f121c0a76fce13adaa9dae70bce34e58e8c4d9ca942c94028b7a7cd7951/onnxsim-0.6.3-cp310-cp310-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:bf5e7bb9ee1fc4c52860cc6a09da89da24961d08a9c2df2f754cede139b1f8fc", size = 2632155, upload-time = "2026-04-29T13:54:49.145Z" },
+    { url = "https://files.pythonhosted.org/packages/2e/51/c9fdf1de85bff91d77b61ebde637934c2253432f3d4e085e3573ceab2a5b/onnxsim-0.6.3-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:1020ca5315fbc46ef2e421c711d7da9a4888a8eb9ec2b01354f0c51884fe1289", size = 2942847, upload-time = "2026-04-29T13:54:51.214Z" },
+    { url = "https://files.pythonhosted.org/packages/1a/c5/04a4267f9cdf3545d8e07c01bdee5eb8b7e321d2bd8f3a399211652d9fc8/onnxsim-0.6.3-cp310-cp310-win_amd64.whl", hash = "sha256:60299269e426d5142dac51fec38463f4ec7b9db3a16ad0522e230b3f1ca14a49", size = 1643717, upload-time = "2026-04-29T13:54:52.816Z" },
+    { url = "https://files.pythonhosted.org/packages/ec/b6/8aaa5a08fc552c85c7def463c34f77c955a7cb77d1fc09fd0cb28ef498f7/onnxsim-0.6.3-cp312-abi3-macosx_11_0_arm64.whl", hash = "sha256:272982fc45af9527528208bff5fb7ea4f9eefd9543e63e9b4ed12c2886639c15", size = 1868204, upload-time = "2026-04-29T13:55:02.973Z" },
+    { url = "https://files.pythonhosted.org/packages/b5/9a/27e3441185153715b05e3ba9ba758f95d583e96b3e5b912448929a4b8d4e/onnxsim-0.6.3-cp312-abi3-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2308fc339a1767611dbd7336c3b84a4d91ff7b5172cadbd082ac3170717cac0f", size = 2628874, upload-time = "2026-04-29T13:55:05.142Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/68/9bbb830e240557f6f5bbd2da2e9df3abbf3bf850e088814bd90194ee8efe/onnxsim-0.6.3-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:5b5f78597af8e7f845ab326739809dab1a1e9196016b861f0bb12bd4521a85cf", size = 2937736, upload-time = "2026-04-29T13:55:07.098Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/12/5cb26d101e20897bb270f3ea0e4eba1d6f8b78787f199bc6caf3d13928c8/onnxsim-0.6.3-cp312-abi3-win_amd64.whl", hash = "sha256:8e5334d2946dca52564cf05df6628830c7a1b1a24ef91adca61d06b123b61f58", size = 1641767, upload-time = "2026-04-29T13:55:08.965Z" },
+]
+
+[[package]]
 name = "packaging"
 version = "25.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1181,6 +1224,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e1/d2/a6ac37982c8e314f71acd5d4a509dfde718f0c0fc8590b35b7d64101097e/result-0.9.0.tar.gz", hash = "sha256:cc4147c824221e8326d143a55065ec17b6337a9c0dda7700f7f947ca33ac63fd", size = 11026, upload-time = "2022-12-10T02:56:09.386Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b4/82/fea8e6012bd14039bca798d590c011bfe341628a990d6c78d73e98855b2b/result-0.9.0-py3-none-any.whl", hash = "sha256:2dd342c13fbf28d207c3f466f01a7915c6ee0d1fe3235fd9ba2041d36de498c1", size = 8124, upload-time = "2022-12-10T02:56:06.177Z" },
+]
+
+[[package]]
+name = "rich"
+version = "15.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markdown-it-py" },
+    { name = "pygments" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36", size = 230680, upload-time = "2026-04-12T08:24:00.75Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl", hash = "sha256:33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb", size = 310654, upload-time = "2026-04-12T08:24:02.83Z" },
 ]
 
 [[package]]
