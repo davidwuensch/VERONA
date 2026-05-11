@@ -35,14 +35,14 @@ dependencies = [
     "onnx>=1.14.0",
     "onnxruntime>=1.14.1",
     "onnx2torch>=1.5.14",
-    "onnxsim>=0.4",
     "pandas>=2.0.1",
     "PyYAML>=6.0.1",
     "result>=0.9.0",
     "seaborn>=0.13.2",
     "torch>=2.6.0",
     "torchvision>=0.18.1",
-    "typing_extensions"
+    "typing_extensions",
+    "onnxsim>=0.6.3",
 ]
 
 [project.optional-dependencies]
