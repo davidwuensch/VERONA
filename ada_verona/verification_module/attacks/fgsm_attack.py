@@ -28,13 +28,16 @@ class FGSMAttack(Attack):
         execute(model: Module, data: Tensor, target: Tensor, epsilon: float) -> Tensor:
             Executes the FGSM attack on the given model and data.
     """
-    def __init__(self) -> None:
+    def __init__(self, data_lb: float = 0.0, data_ub: float = 1.0) -> None:
         """
         Initialize the FGSM to record the name
         Args:
-            
+            data_lb (float, optional): Lower bound for valid data values. Defaults to 0.0.
+            data_ub (float, optional): Upper bound for valid data values. Defaults to 1.0.
         """
         super().__init__()
+        self.data_lb = data_lb
+        self.data_ub = data_ub
         self.name = "FGSM"
 
     def execute(self, model: Module, data: Tensor, target: Tensor, epsilon: float) -> Tensor:
@@ -67,6 +70,6 @@ class FGSMAttack(Attack):
 
         perturbed_image = data + epsilon * sign_data_grad
         perturbed_image = torch.clamp(
-            perturbed_image, 0, 1
+            perturbed_image, self.data_lb, self.data_ub
         )
         return perturbed_image

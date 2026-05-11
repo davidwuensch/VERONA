@@ -30,7 +30,7 @@ class PGDAttack(Attack):
         randomise (bool): Whether to randomize the initial perturbation.
     """
 
-    def __init__(self, number_iterations: int, step_size: float = None, randomise: bool = False) -> None:
+    def __init__(self, number_iterations: int, step_size: float = None, randomise: bool = False, data_lb: float = 0.0, data_ub: float = 1.0) -> None:
         """
         Initialize the PGDAttack with specific parameters.
 
@@ -38,11 +38,15 @@ class PGDAttack(Attack):
             number_iterations (int): The number of iterations for the attack.
             step_size (float, optional): The step size for each iteration. Defaults to None.
             randomise (bool, optional): Whether to randomize the initial perturbation. Defaults to False.
+            data_lb (float, optional): Lower bound for valid data values. Defaults to 0.0.
+            data_ub (float, optional): Upper bound for valid data values. Defaults to 1.0.
         """
         super().__init__()
         self.number_iterations = number_iterations
         self.step_size = step_size
         self.randomise = randomise
+        self.data_lb = data_lb
+        self.data_ub = data_ub
         self.name = (
             f"PGDAttack (iterations={self.number_iterations}, "
             f"step_size={self.step_size}, randomise={self.randomise})"
@@ -73,7 +77,7 @@ class PGDAttack(Attack):
 
         if self.randomise:
             adv_images = adv_images + torch.empty_like(data).uniform_(-epsilon, epsilon)
-            adv_images = torch.clamp(adv_images, min=0, max=1).detach()
+            adv_images = torch.clamp(adv_images, min=self.data_lb, max=self.data_ub).detach()
 
         for _ in range(0, self.number_iterations):
             adv_images.requires_grad = True
@@ -84,6 +88,6 @@ class PGDAttack(Attack):
 
             adv_images = adv_images.detach() + step_size * grad.sign()
             delta = torch.clamp(adv_images - data, min=-epsilon, max=epsilon)
-            adv_images = torch.clamp(data + delta, min=0, max=1).detach()
+            adv_images = torch.clamp(data + delta, min=self.data_lb, max=self.data_ub).detach()
 
         return adv_images
